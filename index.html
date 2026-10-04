@@ -1,961 +1,592 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Pranish Sigdel | Web Developer — Websites for Small Businesses</title>
-    <meta name="description" content="Portfolio of Pranish Sigdel — a Grade 12 computer science student learning AI-assisted web development and building modern, responsive websites.">
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f5f5;
-            color: #171717;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        .container {
-            width: min(1100px, 92%);
-            margin: 0 auto;
-        }
-
-        /* NAVIGATION */
-        header {
-            padding: 24px 0;
-            background: #f5f5f5;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .nav-links a:hover {
-            text-decoration: underline;
-        }
-
-        /* HERO */
-        .hero {
-            min-height: 82vh;
-            display: flex;
-            align-items: center;
-            padding: 80px 0;
-        }
-
-        .hero-content {
-            max-width: 850px;
-        }
-
-        .eyebrow {
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            margin-bottom: 22px;
-        }
-
-        .hero h1 {
-            font-size: clamp(48px, 8vw, 88px);
-            line-height: 0.98;
-            letter-spacing: -3px;
-            margin-bottom: 30px;
-        }
-
-        .hero h1 span {
-            display: block;
-        }
-
-        .hero-text {
-            max-width: 700px;
-            font-size: 20px;
-            color: #555;
-            margin-bottom: 35px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 13px 22px;
-            border-radius: 7px;
-            text-decoration: none;
-            font-weight: 700;
-            border: 1px solid #171717;
-            transition: 0.2s ease;
-        }
-
-        .button.primary {
-            background: #171717;
-            color: white;
-        }
-
-        .button.secondary {
-            background: transparent;
-            color: #171717;
-        }
-
-        .button:hover {
-            transform: translateY(-2px);
-            opacity: 0.82;
-        }
-
-        /* GENERAL SECTIONS */
-        section {
-            padding: 100px 0;
-            border-top: 1px solid #ddd;
-        }
-
-        .section-label {
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            margin-bottom: 14px;
-        }
-
-        .section-title {
-            font-size: clamp(34px, 5vw, 54px);
-            line-height: 1.05;
-            margin-bottom: 25px;
-            letter-spacing: -1px;
-        }
-
-        .section-intro {
-            max-width: 700px;
-            color: #5a5a5a;
-            font-size: 18px;
-            margin-bottom: 45px;
-        }
-
-        /* ABOUT */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 60px;
-        }
-
-        .about-text p {
-            margin-bottom: 18px;
-            font-size: 17px;
-        }
-
-        .quick-facts {
-            border: 1px solid #d8d8d8;
-            border-radius: 12px;
-            padding: 28px;
-            background: #fff;
-        }
-
-        .quick-facts h3 {
-            margin-bottom: 20px;
-        }
-
-        .fact {
-            padding: 14px 0;
-            border-top: 1px solid #ddd;
-        }
-
-        .fact:first-of-type {
-            border-top: 0;
-        }
-
-        .fact strong {
-            display: block;
-            margin-bottom: 3px;
-        }
-
-        .fact span {
-            color: #666;
-        }
-
-        /* SKILLS */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-
-        .skill-card {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            padding: 28px;
-        }
-
-        .skill-number {
-            font-size: 13px;
-            font-weight: 800;
-            margin-bottom: 25px;
-        }
-
-        .skill-card h3 {
-            font-size: 23px;
-            margin-bottom: 10px;
-        }
-
-        .skill-card p {
-            color: #666;
-        }
-
-        /* WORKFLOW */
-        .workflow {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 14px;
-        }
-
-        .workflow-step {
-            padding: 25px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-        }
-
-        .workflow-step strong {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .workflow-step p {
-            color: #666;
-            font-size: 15px;
-        }
-
-        /* PROJECTS */
-        .project-card {
-            background: #171717;
-            color: white;
-            border-radius: 16px;
-            padding: 42px;
-        }
-
-        .project-tag {
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-
-        .project-card h3 {
-            font-size: clamp(30px, 5vw, 48px);
-            line-height: 1.05;
-            margin-bottom: 20px;
-        }
-
-        .project-card p {
-            max-width: 720px;
-            color: #d0d0d0;
-            margin-bottom: 28px;
-            font-size: 17px;
-        }
-
-        .project-link {
-            display: inline-block;
-            text-decoration: none;
-            font-weight: 700;
-            border-bottom: 1px solid white;
-            padding-bottom: 4px;
-        }
-
-        /* JOURNEY */
-        .journey-list {
-            display: grid;
-            gap: 0;
-        }
-
-        .journey-item {
-            display: grid;
-            grid-template-columns: 100px 1fr;
-            gap: 30px;
-            padding: 28px 0;
-            border-top: 1px solid #ddd;
-        }
-
-        .journey-year {
-            font-weight: 800;
-        }
-
-        .journey-item h3 {
-            margin-bottom: 7px;
-            font-size: 23px;
-        }
-
-        .journey-item p {
-            color: #666;
-            max-width: 700px;
-        }
-
-        /* GOALS */
-        .goals-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-        }
-
-        .goal-card {
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            padding: 30px;
-        }
-
-        .goal-card h3 {
-            margin-bottom: 15px;
-        }
-
-        .goal-card ul {
-            padding-left: 20px;
-            color: #555;
-        }
-
-        .goal-card li {
-            margin: 8px 0;
-        }
-
-        /* CONTACT */
-        .contact {
-            background: #e9e9e9;
-        }
-
-        .contact-box {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            gap: 40px;
-        }
-
-        .contact-box h2 {
-            font-size: clamp(38px, 6vw, 65px);
-            line-height: 1;
-            max-width: 700px;
-            margin-bottom: 20px;
-        }
-
-        .contact-box p {
-            color: #555;
-            max-width: 600px;
-        }
-
-        .contact-links {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-
-        .contact-links a {
-            text-decoration: none;
-            font-weight: 700;
-            padding: 12px 16px;
-            border: 1px solid #171717;
-            border-radius: 7px;
-        }
-
-        /* FOOTER */
-        footer {
-            padding: 30px 0;
-            background: #171717;
-            color: #ccc;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-            font-size: 14px;
-        }
-
-        /* MOBILE */
-        @media (max-width: 750px) {
-            header {
-                position: static;
-            }
-
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .nav-links {
-                gap: 14px;
-            }
-
-            .hero {
-                min-height: auto;
-                padding: 70px 0 90px;
-            }
-
-            .hero h1 {
-                letter-spacing: -2px;
-            }
-
-            section {
-                padding: 75px 0;
-            }
-
-            .about-grid,
-            .skills-grid,
-            .goals-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .workflow {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .contact-box {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .contact-links {
-                justify-content: flex-start;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .container {
-                width: min(92%, 1100px);
-            }
-
-            .workflow {
-                grid-template-columns: 1fr;
-            }
-
-            .journey-item {
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
-
-            .project-card {
-                padding: 28px;
-            }
-
-            .hero-text {
-                font-size: 17px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NOIR & CO. Hair Studio — a premium concept salon website by Pranish Sigdel.">
+<title>NOIR & CO. — Project Demo | Pranish Sigdel</title>
+
+<style>
+    :root{
+        --ink:#171513;
+        --muted:#6f6962;
+        --cream:#f5f0e9;
+        --paper:#fbf9f5;
+        --line:#ddd5cc;
+        --accent:#b68b5b;
+        --dark:#211d19;
+        --white:#fff;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+        font-family:Arial, Helvetica, sans-serif;
+        background:var(--paper);
+        color:var(--ink);
+        line-height:1.6;
+    }
+    img{display:block;width:100%;height:100%;object-fit:cover}
+    a{color:inherit}
+    .container{width:min(1160px,92%);margin:auto}
+    .eyebrow{
+        font-size:12px;font-weight:800;letter-spacing:2.5px;
+        text-transform:uppercase;color:var(--accent);margin-bottom:18px
+    }
+    .section{padding:105px 0;border-top:1px solid var(--line)}
+    .section-head{max-width:700px;margin-bottom:48px}
+    .section-title{
+        font-family:Georgia,serif;font-size:clamp(42px,6vw,72px);
+        line-height:1.02;letter-spacing:-2px;margin-bottom:20px
+    }
+    .section-text{color:var(--muted);font-size:18px;max-width:650px}
+    .button{
+        display:inline-block;text-decoration:none;border:1px solid var(--ink);
+        padding:14px 22px;font-weight:800;font-size:14px;
+        transition:.2s ease
+    }
+    .button:hover{transform:translateY(-3px)}
+    .button.dark{background:var(--ink);color:var(--white)}
+    .button.light{background:transparent}
+    .button.gold{background:var(--accent);color:white;border-color:var(--accent)}
+
+    /* NAV */
+    header{
+        position:sticky;top:0;z-index:1000;background:rgba(251,249,245,.94);
+        backdrop-filter:blur(12px);border-bottom:1px solid var(--line)
+    }
+    nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+    .logo{font-family:Georgia,serif;font-size:23px;font-weight:bold;letter-spacing:1px}
+    .logo small{font-family:Arial,sans-serif;font-size:9px;letter-spacing:3px;display:block;color:var(--muted);font-weight:700}
+    .nav-links{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+    .nav-links a{text-decoration:none;font-size:13px;font-weight:800}
+    .nav-links a:hover{text-decoration:underline}
+
+    /* HERO */
+    .hero{min-height:calc(100vh - 78px);display:grid;grid-template-columns:1.02fr .98fr}
+    .hero-copy{display:flex;align-items:center;padding:80px 8% 80px 0}
+    .hero h1{
+        font-family:Georgia,serif;font-size:clamp(60px,8vw,105px);
+        line-height:.9;letter-spacing:-5px;margin-bottom:30px
+    }
+    .hero h1 span{display:block;color:var(--accent);font-style:italic}
+    .hero-sub{font-size:20px;color:var(--muted);max-width:600px;margin-bottom:35px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-photo{min-height:680px;position:relative}
+    .hero-photo img{filter:saturate(.8)}
+    .hero-badge{
+        position:absolute;left:-40px;bottom:45px;background:var(--ink);color:white;
+        padding:22px 26px;max-width:230px
+    }
+    .hero-badge strong{display:block;font-family:Georgia,serif;font-size:25px;margin-bottom:4px}
+    .hero-badge span{font-size:12px;color:#d7d0c8}
+
+    /* STRIP */
+    .strip{background:var(--ink);color:white;padding:20px 0;overflow:hidden}
+    .strip-inner{display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap;font-size:11px;letter-spacing:2px;font-weight:800;text-transform:uppercase}
+    .strip span{color:#cfc5bb}
+
+    /* ABOUT */
+    .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:start}
+    .about-image{height:520px}
+    .about-copy{padding-top:20px}
+    .about-copy h3{font-family:Georgia,serif;font-size:30px;margin-bottom:18px}
+    .about-copy p{color:var(--muted);margin-bottom:22px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:35px}
+    .stat{border-top:1px solid var(--line);padding-top:14px}
+    .stat strong{font-family:Georgia,serif;font-size:30px;display:block}
+    .stat span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+
+    /* SERVICES */
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .service-card{
+        background:white;border:1px solid var(--line);padding:30px;
+        min-height:260px;transition:.25s ease
+    }
+    .service-card:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(23,21,19,.07)}
+    .service-number{font-size:12px;color:var(--accent);font-weight:800;margin-bottom:45px}
+    .service-card h3{font-family:Georgia,serif;font-size:27px;margin-bottom:10px}
+    .service-card p{color:var(--muted);font-size:14px}
+    .service-card .from{display:block;margin-top:20px;font-size:12px;font-weight:800;letter-spacing:1px}
+
+    /* MENU */
+    .menu-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+    .menu-column h3{font-family:Georgia,serif;font-size:32px;margin-bottom:20px}
+    .menu-item{
+        display:grid;grid-template-columns:1fr auto;gap:15px;
+        padding:18px 0;border-bottom:1px solid var(--line)
+    }
+    .menu-item h4{font-size:16px;margin-bottom:3px}
+    .menu-item p{font-size:13px;color:var(--muted)}
+    .price{font-weight:800;white-space:nowrap}
+
+    /* PACKAGES */
+    .packages{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .package{
+        padding:34px;background:var(--cream);border:1px solid var(--line)
+    }
+    .package.featured{background:var(--ink);color:white}
+    .package-label{font-size:11px;font-weight:800;letter-spacing:2px;color:var(--accent);text-transform:uppercase}
+    .package h3{font-family:Georgia,serif;font-size:31px;margin:16px 0 8px}
+    .package-price{font-size:28px;font-weight:800;margin-bottom:18px}
+    .package ul{list-style:none}
+    .package li{padding:9px 0;border-bottom:1px solid rgba(128,120,110,.25);font-size:14px}
+    .package li::before{content:"✓";margin-right:9px;color:var(--accent)}
+    .package .button{margin-top:25px}
+
+    /* GALLERY */
+    .gallery{
+        display:grid;grid-template-columns:1.2fr .8fr .8fr;
+        grid-template-rows:270px 270px;gap:14px
+    }
+    .gallery-item{overflow:hidden;background:#ddd}
+    .gallery-item:first-child{grid-row:span 2}
+    .gallery-item:nth-child(4){grid-column:2 / span 2}
+    .gallery-item img{transition:.45s ease}
+    .gallery-item:hover img{transform:scale(1.04)}
+
+    /* TEAM */
+    .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .team-card{background:white;border:1px solid var(--line)}
+    .team-photo{height:350px}
+    .team-info{padding:22px}
+    .team-info h3{font-family:Georgia,serif;font-size:25px}
+    .team-info p{color:var(--muted);font-size:13px}
+
+    /* TESTIMONIALS */
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .review{padding:30px;background:var(--cream);border:1px solid var(--line)}
+    .stars{letter-spacing:3px;color:var(--accent);margin-bottom:18px}
+    .review p{font-family:Georgia,serif;font-size:21px;line-height:1.4;margin-bottom:22px}
+    .review span{font-size:12px;color:var(--muted);font-weight:800}
+
+    /* BOOKING */
+    .booking{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
+    .booking-info h2{font-family:Georgia,serif;font-size:55px;line-height:1;margin-bottom:20px}
+    .booking-info p{color:var(--muted);margin-bottom:25px}
+    .contact-list{list-style:none}
+    .contact-list li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}
+    .booking-form{background:white;padding:35px;border:1px solid var(--line)}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    label{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
+    input,select,textarea{
+        width:100%;padding:14px;border:1px solid var(--line);background:#faf8f4;
+        font:inherit;outline:none
+    }
+    input:focus,select:focus,textarea:focus{border-color:var(--ink)}
+    .field{margin-bottom:16px}
+    textarea{min-height:120px;resize:vertical}
+    .form-full{grid-column:1/-1}
+    .booking-form button{cursor:pointer;width:100%;border:0;margin-top:4px}
+
+    /* FAQ */
+    .faq{max-width:850px}
+    details{border-top:1px solid var(--line);padding:22px 0}
+    details:last-child{border-bottom:1px solid var(--line)}
+    summary{cursor:pointer;font-family:Georgia,serif;font-size:22px}
+    details p{color:var(--muted);padding-top:13px;max-width:700px}
+
+    /* FOOTER */
+    footer{background:var(--ink);color:white;padding:65px 0 25px}
+    .footer-grid{display:grid;grid-template-columns:1.3fr .7fr .7fr;gap:50px;padding-bottom:50px}
+    footer h3{font-family:Georgia,serif;font-size:32px;margin-bottom:12px}
+    footer p,footer a{color:#c9c1b8;font-size:14px}
+    footer a{text-decoration:none;display:block;margin:7px 0}
+    .copyright{border-top:1px solid #403b36;padding-top:20px;color:#8e877f;font-size:12px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+    @media(max-width:900px){
+        .hero{grid-template-columns:1fr}
+        .hero-copy{padding:80px 0}
+        .hero-photo{min-height:560px}
+        .hero-badge{left:20px}
+        .about-grid,.booking{grid-template-columns:1fr;gap:40px}
+        .services-grid,.packages,.team-grid,.reviews{grid-template-columns:1fr 1fr}
+        .menu-wrap{grid-template-columns:1fr}
+        .footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:620px){
+        .section{padding:75px 0}
+        .nav-links{gap:12px}
+        .nav-links a{font-size:11px}
+        .hero h1{font-size:62px;letter-spacing:-3px}
+        .hero-photo{min-height:440px}
+        .services-grid,.packages,.team-grid,.reviews,.stats{grid-template-columns:1fr}
+        .gallery{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px 220px}
+        .gallery-item:first-child{grid-row:span 2}
+        .gallery-item:nth-child(4){grid-column:1 / span 2}
+        .form-grid{grid-template-columns:1fr}
+        .form-full{grid-column:auto}
+        .footer-grid{grid-template-columns:1fr}
+        .strip-inner{justify-content:flex-start}
+    }
+/* === MATTE NOIR THEME === */
+:root{--ink:#22211f!important;--muted:#5f5e5a!important;--cream:#c9c8c4!important;--paper:#d7d6d2!important;--line:#aaa9a5!important;--accent:#9a7953!important;--dark:#252421!important;--white:#f1f0ed!important}
+body{background:#d2d1cd!important;color:var(--ink)!important}
+header{background:rgba(210,209,205,.94)!important;border-color:#aaa9a5!important}
+.section{background:transparent!important;border-color:var(--line)!important}.section:nth-of-type(even){background:rgba(241,240,237,.24)!important}
+.service-card,.team-card,.booking-form{background:#e0dfdb!important;border-color:var(--line)!important}.package{background:#c5c4c0!important;border-color:var(--line)!important}.package.featured{background:#252421!important}
+.review{background:#c5c4c0!important;border-color:var(--line)!important}.booking-form input,.booking-form select,.booking-form textarea{background:#ecebe8!important;border-color:#aaa9a5!important}.gallery-item{background:#bdbcb8!important}
+footer{background:#252421!important}.portfolio-return a{background:#252421!important}.portfolio-return a.whatsapp{background:#d7ff64!important;color:#10130d!important}
+
+</style>
+
+<style>
+.portfolio-return{position:fixed;left:18px;bottom:18px;z-index:9999;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.portfolio-return a{display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border-radius:999px;background:#171513;color:#fff!important;text-decoration:none!important;font:700 12px Arial,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.16)}.portfolio-return a.whatsapp{background:#d7ff64;color:#10130d!important;border-color:#d7ff64}.portfolio-return a:hover{transform:translateY(-2px)}</style>
 </head>
 
-<body>
+<body><div class="portfolio-return"><a href="../index.html">← Pranish Portfolio</a><a class="whatsapp" href="https://wa.me/9779748277301?text=Hi%20Pranish%2C%20I%20saw%20your%20portfolio%20project." target="_blank" rel="noopener">WhatsApp ↗</a></div>
 
-    <!-- NAVIGATION -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">PRANISH.</div>
-
-                <div class="nav-links">
-                    <a href="#about">About</a>
-                    <a href="#services">Services</a>
-                    <a href="#work">Work</a>
-                    <a href="#journey">Journey</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-
-        <!-- HERO -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-
-                    <p class="eyebrow">WEB DEVELOPER • KATHMANDU, NEPAL</p>
-
-                    <h1>
-                        Modern websites.
-                        <span>Built for small businesses.</span>
-                    </h1>
-
-                    <p class="hero-text">
-                        I design and build clean, responsive websites for cafés, restaurants, salons,
-                        small businesses and personal brands — using modern web development and AI-assisted workflows.
-                    </p>
-
-                    <div class="buttons">
-                        <a href="#work" class="button primary">View My Work</a>
-                        <a href="#contact" class="button secondary">Get a Website</a>
-                    </div>
-
-                </div>
+<header>
+    <div class="container">
+        <nav>
+            <a class="logo" href="#top" style="text-decoration:none">
+                NOIR & CO.
+                <small>HAIR STUDIO + BARBER</small>
+            </a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#menu">Price Menu</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#team">Team</a>
+                <a href="#book">Book</a>
             </div>
-        </section>
-
-        <!-- ABOUT -->
-        <section id="about">
-            <div class="container">
-
-                <p class="section-label">01 • ABOUT ME</p>
-
-                <div class="about-grid">
-
-                    <div class="about-text">
-                        <h2 class="section-title">
-                            I build while I learn.
-                        </h2>
-
-                        <p>
-                            I'm Pranish Sigdel, a Grade 12 computer science student and web developer based in Nepal.
-                            I started learning web development from zero and chose a practical path:
-                            build real websites, understand the technology behind them, and use those skills to help real businesses.
-                        </p>
-
-                        <p>
-                            I use AI as a development partner to move faster — for planning, coding, debugging,
-                            content and iteration — while I test the result and learn how the code works.
-                        </p>
-
-                        <p>
-                            My focus is simple: create useful, responsive websites that give small businesses a professional
-                            online presence and make it easier for customers to find, understand and contact them.
-                        </p>
-                    </div>
-
-                    <div class="quick-facts">
-                        <h3>Quick facts</h3>
-
-                        <div class="fact">
-                            <strong>Name</strong>
-                            <span>Pranish Sigdel</span>
-                        </div>
-
-                        <div class="fact">
-                            <strong>Currently</strong>
-                            <span>Grade 12 Computer Science student & web developer</span>
-                        </div>
-
-                        <div class="fact">
-                            <strong>Learning</strong>
-                            <span>Web development & AI-assisted development</span>
-                        </div>
-
-                        <div class="fact">
-                            <strong>Focus</strong>
-                            <span>Modern, responsive websites</span>
-                        </div>
-
-                        <div class="fact">
-                            <strong>Based in</strong>
-                            <span>Nepal</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- SKILLS -->
-        <section id="skills">
-            <div class="container">
-
-                <p class="section-label">02 • CAPABILITIES</p>
-
-                <h2 class="section-title">
-                    What I can build.
-                </h2>
-
-                <p class="section-intro">
-                    I focus on practical websites that look professional, work well on mobile,
-                    and give customers a clear way to learn about and contact a business.
-                </p>
-
-                <div class="skills-grid">
-
-                    <div class="skill-card">
-                        <div class="skill-number">01</div>
-                        <h3>Website Creation</h3>
-                        <p>
-                            Build clean, modern websites for personal projects, small businesses,
-                            portfolios and landing pages.
-                        </p>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-number">02</div>
-                        <h3>AI-Assisted Development</h3>
-                        <p>
-                            Use AI as a development partner to generate, modify, explain, debug
-                            and improve website code.
-                        </p>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-number">03</div>
-                        <h3>Responsive Design</h3>
-                        <p>
-                            Build layouts that adapt to desktop, tablet and mobile screen sizes
-                            and test them using browser tools.
-                        </p>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-number">04</div>
-                        <h3>Customization</h3>
-                        <p>
-                            Turn a customer's idea, reference or design direction into a
-                            customized website experience.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- SERVICES -->
-        <section id="services">
-            <div class="container">
-
-                <p class="section-label">03 • SERVICES</p>
-
-                <h2 class="section-title">
-                    A website that helps your business look credible online.
-                </h2>
-
-                <p class="section-intro">
-                    Simple, focused websites for businesses that need a professional online presence
-                    without unnecessary complexity.
-                </p>
-
-                <div class="skills-grid">
-
-                    <div class="skill-card">
-                        <div class="skill-number">01</div>
-                        <h3>Business Websites</h3>
-                        <p>
-                            Modern responsive websites for cafés, restaurants, salons, shops, services and personal brands.
-                        </p>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-number">02</div>
-                        <h3>Landing Pages</h3>
-                        <p>
-                            Focused pages designed to explain an offer clearly and drive visitors toward a call, message or enquiry.
-                        </p>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-number">03</div>
-                        <h3>Menus & Service Pages</h3>
-                        <p>
-                            Clear digital menus, service lists, pricing, galleries, opening hours and business information.
-                        </p>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-number">04</div>
-                        <h3>Website Improvements</h3>
-                        <p>
-                            Mobile improvements, content updates, visual refreshes and fixes for existing small-business websites.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- HOW I WORK -->
-        <section>
-            <div class="container">
-
-                <p class="section-label">04 • HOW I WORK</p>
-
-                <h2 class="section-title">
-                    From idea to website.
-                </h2>
-
-                <p class="section-intro">
-                    My approach is simple: understand the idea, build it, test it, improve it,
-                    and deliver something useful.
-                </p>
-
-                <div class="workflow">
-
-                    <div class="workflow-step">
-                        <strong>01 — Understand</strong>
-                        <p>Learn what the customer needs and what the website should achieve.</p>
-                    </div>
-
-                    <div class="workflow-step">
-                        <strong>02 — Build</strong>
-                        <p>Use AI and web development tools to turn the idea into a working site.</p>
-                    </div>
-
-                    <div class="workflow-step">
-                        <strong>03 — Test</strong>
-                        <p>Check the design, links, responsiveness and overall experience.</p>
-                    </div>
-
-                    <div class="workflow-step">
-                        <strong>04 — Improve</strong>
-                        <p>Refine the website based on feedback and deliver the final version.</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJECTS -->
-        <section id="work">
-            <div class="container">
-
-                <p class="section-label">05 • FEATURED WORK</p>
-
-                <h2 class="section-title">
-                    Projects that show the journey.
-                </h2>
-
-                <p class="section-intro">
-                    A growing collection of business website demos built to show how I approach real-world customer needs.
-                </p>
-
-                <div class="project-card">
-
-                    <div class="project-tag">BUSINESS WEBSITE DEMO • 2026</div>
-
-                    <h3>Maya Coffee House</h3>
-
-                    <p>
-                        A complete café website concept with a responsive layout, menu, pricing, gallery,
-                        location, opening hours and clear contact actions. Built to show how a local business
-                        could present itself professionally online.
-                    </p>
-
-                    <a href="maya/index.html" class="project-link">
-                        View Maya Coffee House →
-                    </a>
-
-                </div>
-
-                <div class="project-card" style="margin-top: 18px; background: #fff; color: #171717; border: 1px solid #ddd;">
-
-                    <div class="project-tag" style="color: #555;">BUSINESS WEBSITE DEMO • 2026</div>
-
-                    <h3>NOIR & CO. Hair Studio + Barber</h3>
-
-                    <p style="color: #555;">
-                        A full salon and barber website concept with services, NPR pricing, packages,
-                        gallery, team section, reviews, FAQ and an interactive appointment request form.
-                    </p>
-
-                    <a href="noir/index.html" class="project-link" style="color:#171717; border-color:#171717;">
-                        View NOIR & CO. →
-                    </a>
-
-                </div>
-                <div class="project-card" style="margin-top: 18px; background: #f8f3ec; color: #171717; border: 1px solid #ddd;">
-                    <div class="project-tag" style="color: #7e3026;">BUSINESS WEBSITE DEMO • 2026</div>
-                    <h3>GHARANA — Thakali Kitchen</h3>
-                    <p style="color: #555;">
-                        A complete restaurant website concept for a Kathmandu Thakali kitchen, with NPR menu pricing,
-                        signature sets, gallery, story, location, reservations and FAQ.
-                    </p>
-                    <a href="gharana/index.html" class="project-link" style="color:#171717; border-color:#171717;">
-                        View GHARANA →
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- JOURNEY -->
-        <section id="journey">
-            <div class="container">
-
-                <p class="section-label">06 • MY JOURNEY</p>
-
-                <h2 class="section-title">
-                    Started from zero. Still building.
-                </h2>
-
-                <p class="section-intro">
-                    The Triumph isn't the whole story. It's one of the reasons I started.
-                    The bigger story is what I'm learning and what I'm building along the way.
-                </p>
-
-                <div class="journey-list">
-
-                    <div class="journey-item">
-                        <div class="journey-year">01</div>
-                        <div>
-                            <h3>Starting from zero</h3>
-                            <p>
-                                I began learning web development without already knowing how to
-                                build websites.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="journey-item">
-                        <div class="journey-year">02</div>
-                        <div>
-                            <h3>Learning by building</h3>
-                            <p>
-                                Instead of only studying theory, I started creating actual pages
-                                and learning how HTML and CSS work.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="journey-item">
-                        <div class="journey-year">03</div>
-                        <div>
-                            <h3>Discovering AI-assisted development</h3>
-                            <p>
-                                I'm learning how to use AI to speed up development while still
-                                understanding, testing and controlling what gets built.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="journey-item">
-                        <div class="journey-year">04</div>
-                        <div>
-                            <h3>Building a portfolio</h3>
-                            <p>
-                                This website is becoming my first real portfolio — a place to
-                                document my work and show what I can create.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="journey-item">
-                        <div class="journey-year">05</div>
-                        <div>
-                            <h3>Working toward real clients</h3>
-                            <p>
-                                My next step is to build more useful examples, learn how to work
-                                with customers, and eventually take on real website projects.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- GOALS -->
-        <section>
-            <div class="container">
-
-                <p class="section-label">07 • GOALS</p>
-
-                <h2 class="section-title">
-                    Where I'm going next.
-                </h2>
-
-                <div class="goals-grid">
-
-                    <div class="goal-card">
-                        <h3>Right now</h3>
-                        <ul>
-                            <li>Improve my HTML and CSS knowledge</li>
-                            <li>Learn more about responsive design</li>
-                            <li>Build more portfolio projects</li>
-                            <li>Learn how to deploy websites</li>
-                            <li>Understand how to work with real customers</li>
-                        </ul>
-                    </div>
-
-                    <div class="goal-card">
-                        <h3>Long term</h3>
-                        <ul>
-                            <li>Become highly capable with AI-assisted development</li>
-                            <li>Build websites for real customers</li>
-                            <li>Create a strong portfolio of work</li>
-                            <li>Develop independent income from my skills</li>
-                            <li>Eventually reach my Triumph Scrambler 400X goal</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section id="contact" class="contact">
-            <div class="container">
-
-                <p class="section-label">08 • CONTACT</p>
-
-                <div class="contact-box">
-
-                    <div>
-                        <h2>Need a website for your business?</h2>
-
-                        <p>
-                            Tell me what your business does, what you want customers to see, and what you need the website to achieve.
-                            I'll turn that idea into a clean, responsive website.
-                        </p>
-                    </div>
-
-                    <div class="contact-links">
-                        <!-- Replace these placeholder links with your real accounts -->
-                        <a href="mailto:sigdelpranish04@gmail.com">Email</a>
-                        <a href="https://www.instagram.com/sigdelpranish04/" target="_blank" rel="noopener" target="_blank">Instagram</a>
-                        <a href="https://github.com/sigdelpranish04" target="_blank" rel="noopener" target="_blank">GitHub</a>
-<a href="https://wa.me/9779748277301" target="_blank" rel="noopener">WhatsApp</a>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <span>© 2026 Pranish Sigdel</span>
-                <span>Built while learning. Improving every day.</span>
+        </nav>
+    </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+    <div class="container hero-copy">
+        <div>
+            <p class="eyebrow">KATHMANDU • HAIR • GROOMING • BEAUTY</p>
+            <h1>Cut.<span>Style.</span>Own it.</h1>
+            <p class="hero-sub">
+                A modern concept salon for sharp cuts, effortless styling, colour,
+                grooming and a little time for yourself.
+            </p>
+            <div class="hero-actions">
+                <a href="#book" class="button dark">Book an Appointment</a>
+                <a href="#menu" class="button light">Explore Prices</a>
             </div>
         </div>
-    </footer>
+    </div>
+    <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85" alt="Modern hair salon interior">
+        <div class="hero-badge">
+            <strong>Walk-ins welcome.</strong>
+            <span>Appointments recommended for colour, treatments and bridal services.</span>
+        </div>
+    </div>
+</section>
+
+<div class="strip">
+    <div class="container strip-inner">
+        <span>Haircuts</span><span>•</span><span>Colour</span><span>•</span><span>Beard & Grooming</span><span>•</span><span>Facials</span><span>•</span><span>Hair Treatments</span><span>•</span><span>Bridal</span>
+    </div>
+</div>
+
+<section class="section" id="about">
+    <div class="container about-grid">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1000&q=85" alt="Hair stylist working in a salon">
+        </div>
+        <div class="about-copy">
+            <p class="eyebrow">01 • THE STUDIO</p>
+            <h2 class="section-title">Good hair starts with good attention.</h2>
+            <h3>A salon built around the details.</h3>
+            <p>
+                NOIR & CO. is a fictional premium salon concept designed for a modern
+                Kathmandu audience. The studio combines haircuts, barbering, colour,
+                treatments, styling, skin care and event-ready grooming under one roof.
+            </p>
+            <p>
+                Every appointment begins with a quick consultation so the stylist
+                understands your hair, routine and the look you actually want.
+            </p>
+            <div class="stats">
+                <div class="stat"><strong>7+</strong><span>Core services</span></div>
+                <div class="stat"><strong>6</strong><span>Specialists</span></div>
+                <div class="stat"><strong>10AM</strong><span>Opening time</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="services">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">02 • WHAT WE DO</p>
+            <h2 class="section-title">Everything for your hair & grooming routine.</h2>
+            <p class="section-text">From a five-minute clean-up to a complete transformation, choose a service or build your own appointment.</p>
+        </div>
+
+        <div class="services-grid">
+            <article class="service-card">
+                <div class="service-number">01 / HAIR</div>
+                <h3>Cut & Style</h3>
+                <p>Classic cuts, fades, layers, trims, blow-dry styling and personalised shape consultation.</p>
+                <span class="from">FROM NPR 500</span>
+            </article>
+            <article class="service-card">
+                <div class="service-number">02 / COLOUR</div>
+                <h3>Colour Studio</h3>
+                <p>Global colour, highlights, balayage, root touch-ups and creative colour consultations.</p>
+                <span class="from">FROM NPR 1,800</span>
+            </article>
+            <article class="service-card">
+                <div class="service-number">03 / BARBER</div>
+                <h3>Barbering</h3>
+                <p>Fades, beard shaping, hot towel grooming, line-ups and clean professional finishes.</p>
+                <span class="from">FROM NPR 350</span>
+            </article>
+            <article class="service-card">
+                <div class="service-number">04 / CARE</div>
+                <h3>Hair Treatments</h3>
+                <p>Deep conditioning, smoothening care, repair rituals and scalp-focused treatments.</p>
+                <span class="from">FROM NPR 1,200</span>
+            </article>
+            <article class="service-card">
+                <div class="service-number">05 / BEAUTY</div>
+                <h3>Skin & Beauty</h3>
+                <p>Express facials, cleanup, threading, waxing and simple event-ready beauty services.</p>
+                <span class="from">FROM NPR 400</span>
+            </article>
+            <article class="service-card">
+                <div class="service-number">06 / EVENTS</div>
+                <h3>Bridal & Events</h3>
+                <p>Bridal hair, party styling, makeup coordination and complete pre-event grooming.</p>
+                <span class="from">FROM NPR 4,500</span>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="menu">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">03 • PRICE MENU</p>
+            <h2 class="section-title">A clear menu. No guessing.</h2>
+            <p class="section-text">Concept pricing in Nepalese rupees. Final prices can vary by hair length, product use and service complexity.</p>
+        </div>
+
+        <div class="menu-wrap">
+            <div class="menu-column">
+                <h3>Hair & Styling</h3>
+                <div class="menu-item"><div><h4>Classic Haircut</h4><p>Wash, cut & basic finish</p></div><span class="price">NPR 600</span></div>
+                <div class="menu-item"><div><h4>Fade / Skin Fade</h4><p>Precision fade & styling</p></div><span class="price">NPR 700</span></div>
+                <div class="menu-item"><div><h4>Haircut + Wash</h4><p>Cut, shampoo & finish</p></div><span class="price">NPR 850</span></div>
+                <div class="menu-item"><div><h4>Blow Dry / Styling</h4><p>Event-ready styling</p></div><span class="price">NPR 900+</span></div>
+                <div class="menu-item"><div><h4>Hair Spa</h4><p>Deep nourishment & scalp massage</p></div><span class="price">NPR 1,500</span></div>
+                <div class="menu-item"><div><h4>Keratin / Smoothening</h4><p>Consultation required</p></div><span class="price">NPR 4,500+</span></div>
+            </div>
+
+            <div class="menu-column">
+                <h3>Barber & Beauty</h3>
+                <div class="menu-item"><div><h4>Beard Trim</h4><p>Shape, trim & finish</p></div><span class="price">NPR 350</span></div>
+                <div class="menu-item"><div><h4>Hair + Beard</h4><p>Cut, beard shape & styling</p></div><span class="price">NPR 950</span></div>
+                <div class="menu-item"><div><h4>Hot Towel Shave</h4><p>Classic barber service</p></div><span class="price">NPR 650</span></div>
+                <div class="menu-item"><div><h4>Express Facial</h4><p>Cleansing & hydration</p></div><span class="price">NPR 700</span></div>
+                <div class="menu-item"><div><h4>Threading</h4><p>Brows / face areas</p></div><span class="price">NPR 250+</span></div>
+                <div class="menu-item"><div><h4>Party Styling</h4><p>Hair styling for events</p></div><span class="price">NPR 1,800+</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">04 • SIGNATURE PACKAGES</p>
+            <h2 class="section-title">Make it a full appointment.</h2>
+        </div>
+        <div class="packages">
+            <article class="package">
+                <span class="package-label">Quick Reset</span>
+                <h3>Fresh Cut</h3>
+                <div class="package-price">NPR 850</div>
+                <ul><li>Consultation</li><li>Haircut</li><li>Wash</li><li>Basic styling</li></ul>
+                <a href="#book" class="button">Book package</a>
+            </article>
+            <article class="package featured">
+                <span class="package-label">Most Requested</span>
+                <h3>Complete Groom</h3>
+                <div class="package-price">NPR 1,650</div>
+                <ul><li>Haircut + wash</li><li>Beard shaping</li><li>Hot towel</li><li>Express facial</li></ul>
+                <a href="#book" class="button gold">Book package</a>
+            </article>
+            <article class="package">
+                <span class="package-label">Event Ready</span>
+                <h3>Party Prep</h3>
+                <div class="package-price">NPR 3,500+</div>
+                <ul><li>Hair consultation</li><li>Hair styling</li><li>Facial / cleanup</li><li>Finishing touch-up</li></ul>
+                <a href="#book" class="button">Book package</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="gallery">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">05 • THE SPACE</p>
+            <h2 class="section-title">A look inside NOIR & CO.</h2>
+        </div>
+        <div class="gallery">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=85" alt="Salon styling area"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=85" alt="Hair styling tools and salon"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=85" alt="Barber chair and grooming"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=1200&q=85" alt="Modern salon interior"></div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="team">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">06 • THE TEAM</p>
+            <h2 class="section-title">People who care about the finish.</h2>
+        </div>
+        <div class="team-grid">
+            <article class="team-card">
+                <div class="team-photo"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=85" alt="Concept salon stylist"></div>
+                <div class="team-info"><h3>Arjun</h3><p>Senior Barber • Fades & Men's Grooming</p></div>
+            </article>
+            <article class="team-card">
+                <div class="team-photo"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=85" alt="Concept salon stylist"></div>
+                <div class="team-info"><h3>Maya</h3><p>Hair Stylist • Colour & Styling</p></div>
+            </article>
+            <article class="team-card">
+                <div class="team-photo"><img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=85" alt="Concept salon stylist"></div>
+                <div class="team-info"><h3>Riya</h3><p>Beauty Specialist • Skin & Event Prep</p></div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">07 • CLIENT NOTES</p>
+            <h2 class="section-title">The kind of experience we're building.</h2>
+        </div>
+        <div class="reviews">
+            <article class="review"><div class="stars">★★★★★</div><p>“The consultation made the difference. I finally got a cut that works with my everyday routine.”</p><span>— Concept client review</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>“Clean space, relaxed atmosphere and a really precise fade. Exactly the experience I wanted.”</p><span>— Concept client review</span></article>
+            <article class="review"><div class="stars">★★★★★</div><p>“The colour consultation was clear from the beginning and the final result felt natural.”</p><span>— Concept client review</span></article>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="book">
+    <div class="container booking">
+        <div class="booking-info">
+            <p class="eyebrow">08 • BOOK</p>
+            <h2>Let's plan your next look.</h2>
+            <p>Choose a service, tell us what you're looking for and we'll confirm your appointment.</p>
+            <ul class="contact-list">
+                <li><strong>Location:</strong> Kathmandu, Nepal</li>
+                <li><strong>Hours:</strong> Sunday–Friday, 10:00 AM–8:00 PM</li>
+                <li><strong>Phone:</strong> +977 9800000000</li>
+                <li><strong>Instagram:</strong> @noirandco.concept</li>
+            </ul>
+        </div>
+
+        <form class="booking-form" onsubmit="event.preventDefault(); alert('Thanks! This is a demo booking form. Connect it to a real form service when the website is deployed.');">
+            <div class="form-grid">
+                <div class="field">
+                    <label for="name">Your name</label>
+                    <input id="name" type="text" placeholder="Pranish Sigdel" required>
+                </div>
+                <div class="field">
+                    <label for="phone">Phone</label>
+                    <input id="phone" type="tel" placeholder="+977 98XXXXXXXX" required>
+                </div>
+                <div class="field">
+                    <label for="service">Service</label>
+                    <select id="service" required>
+                        <option value="">Choose a service</option>
+                        <option>Classic Haircut</option>
+                        <option>Fade / Skin Fade</option>
+                        <option>Hair + Beard</option>
+                        <option>Colour</option>
+                        <option>Hair Treatment</option>
+                        <option>Facial / Beauty</option>
+                        <option>Bridal / Event</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="date">Preferred date</label>
+                    <input id="date" type="date" required>
+                </div>
+                <div class="field form-full">
+                    <label for="message">Anything we should know?</label>
+                    <textarea id="message" placeholder="Tell us about your current hair, the look you're after, or anything else..."></textarea>
+                </div>
+                <div class="field form-full">
+                    <button class="button dark" type="submit">Request Appointment</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">09 • FAQ</p>
+            <h2 class="section-title">Before you visit.</h2>
+        </div>
+        <div class="faq">
+            <details open>
+                <summary>Do I need an appointment?</summary>
+                <p>Walk-ins are welcome for selected services, but appointments are recommended for colour, treatments, bridal work and longer styling sessions.</p>
+            </details>
+            <details>
+                <summary>Can you recommend a haircut?</summary>
+                <p>Yes. A short consultation can cover your face shape, hair texture, maintenance routine and the style you want before the cut begins.</p>
+            </details>
+            <details>
+                <summary>Do colour services require a consultation?</summary>
+                <p>For major colour changes, highlights and corrective colour, a consultation is recommended so the stylist can assess your current hair and plan the service.</p>
+            </details>
+            <details>
+                <summary>Are the prices final?</summary>
+                <p>The prices shown are concept prices for this portfolio project. A real salon would confirm the final price based on hair length, product use and service complexity.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h3>NOIR & CO.</h3>
+                <p>Hair Studio + Barber — a fictional salon concept website created by Pranish Sigdel for portfolio demonstration.</p>
+            </div>
+            <div>
+                <p class="eyebrow">Explore</p>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#menu">Price Menu</a>
+                <a href="#gallery">Gallery</a>
+            </div>
+            <div>
+                <p class="eyebrow">Visit</p>
+                <a href="#book">Book an appointment</a>
+                <a href="tel:+9779800000000">+977 9800000000</a>
+                <a href="#book">Kathmandu, Nepal</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <span>© 2026 NOIR & CO. Concept website.</span>
+            <span>Portfolio project by Pranish Sigdel.</span>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
